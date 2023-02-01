@@ -91,6 +91,7 @@ INSERT INTO notes (note_id,student_id,subject,mark)
 VALUES (1, 1, "oracle",19);
 ```
 as you can see we were able to insert a value in the notes table
+
 ![admin ana](https://user-images.githubusercontent.com/121964432/216117065-a5c63225-9ae2-4263-b0cb-a2634563dc4e.png)
 
 This is a simple example, using "admin" as an admin and "user1" as a normal user, you can perform various privileges on other types of users.
