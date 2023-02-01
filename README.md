@@ -47,3 +47,51 @@ CREATE TABLE notes (
   mark number(10) NOT NULL
 );
 ```
+## Users creation :
+
+Here we have to create two users a simple user and an adminstrator ,to create them we are going to follow these steps :
+
+- we have to connect to the Oracle database as a user with sufficient privileges to create new users, such as the SYSTEM user. wich is already done.
+- we run the following SQL command to create a new user:
+```sql
+CREATE USER user1 IDENTIFIED BY user1 default tablespace users;
+CREATE USER admin IDENTIFIED BY admin default tablespace users;
+```
+- now we need to grant the necessary privileges to these users, For example, to grant the CREATE SESSION privilege
+
+## Grant privileges :
+
+we need to allow "admin" user access to all privileges.
+
+```sql
+grant all  privileges to admin;
+```
+Granting the user "user1" access to the "new session" and "select" functions on the "student" and "notes" database.
+```sql
+GRANT CREATE SESSION TO user1;
+GRANT SELECT ON student TO user1;
+GRANT SELECT ON notes TO user1;
+```
+## Testing :
+
+for the fisrt test we are going to use our simple user "user1" 
+to do that we are goin to run a simple SQL query such as :
+```sql
+INSERT INTO notes (note_id,student_id,subject,mark)
+VALUES (1, 1, "oracle",19);
+```
+we obtain an error because we didnt give the user "user1" the privilege to insert any value in notes table
+
+![image](https://user-images.githubusercontent.com/121964432/216113198-3f87909c-6c1d-4fe4-96ec-104ffa68d9fc.png)
+
+now we are going to do the same process but with admin privileges
+
+```sql
+INSERT INTO notes (note_id,student_id,subject,mark)
+VALUES (1, 1, "oracle",19);
+```
+as you can see we were able to insert a value in the notes table
+![admin ana](https://user-images.githubusercontent.com/121964432/216117065-a5c63225-9ae2-4263-b0cb-a2634563dc4e.png)
+
+This is a simple example, using "admin" as an admin and "user1" as a normal user, you can perform various privileges on other types of users.
+
