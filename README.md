@@ -107,3 +107,38 @@ Charge the Oracle driver for the client platform: The Oracle Connection Pilote i
 - Establishing a connection The client platform can establish a secure connection with the Oracle data base by using the connection information and the Oracle pilot, according on the entered profile.
 - Execute queries: After establishing a connection, the client platform can run SQL queries to interact with the data stored in the Oracle database.
 - Terminate the connection: Terminating the connection will free up the platform's used resources when it is no longer necessary for it to connect to the database.
+
+## Overview
+
+Our code is an example of a server-side Web application that implements login and note-display functionality.
+- An authentication form where the user can enter their user id and password is displayed when they access the home page using the HTTP GET method. User submission of the form triggers the HTTP POST / login method to be used. This method compares the user's identity information with the list of authorized users by extracting it from the body of the request. A notice of login failure is sent if the user cannot be found in the list. Otherwise, the connection is recorded in a journal file, and the user is directed to the appropriate page according to his or her user name.
+- A group of SQL queries are executed on an Oracle database when a user accesses a web page using the HTTP GET method. Each query's result is converted to HTML for a table display on the page.
+
+##  Web platfrorm test:
+
+The code checks to see if the connection information corresponds to one of the authorized users when the user logs in by entering their username and password in a form on the home page. If the information is accurate, the user will be directed to a page appropriate for their user type (admin or normal). Additionally, the code records the connection's time in a journal file.
+
+![user1](https://user-images.githubusercontent.com/121964432/216136553-9af9f889-f89c-4c4f-8c41-34c877bf35b3.png)
+
+if the user is a normal useer like user1 he can only view the table of marks :
+
+![user1 table](https://user-images.githubusercontent.com/121964432/216137410-3d1727f1-9061-4ab1-8efe-cbe4ce6a43b2.png)
+
+If the user is an administrator, they can view a page displaying the database's table of marks and he can modify on it. The code uses the OracleDB library to run some SQL queries to modify the data in this table and generate an HTML table for each result.
+Here is an example of a connection with admin:
+
+![admin](https://user-images.githubusercontent.com/121964432/216137809-f5b6bdcd-c619-4216-b5a9-872c75e51c8c.png)
+
+- first we are going to login as an administrator using the id  "admin" and the password "admin" :
+
+![step1](https://user-images.githubusercontent.com/121964432/216138248-0a489a02-0231-47ef-b2fa-de6617cacdbc.png)
+
+- as you can see we got a web page containing the table in addition of a button and an input to modify the mark
+
+![step2](https://user-images.githubusercontent.com/121964432/216138526-1658b7f9-a5b4-4797-ac2d-b6e699a274c1.png)
+
+- Here we change the mark to 20
+
+![step3](https://user-images.githubusercontent.com/121964432/216138551-7d85cda1-807d-4518-9553-2cdcb72850fe.png)
+
+- after clicking "modify" button we can see the table is updated
