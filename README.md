@@ -143,4 +143,11 @@ Here is an example of a connection with admin:
 
 - after clicking "modify" button we can see the table is updated
 
-> we can access the file logs.txt to see our journal
+> we can access the file logs.txt to see our journal , and  the logs of all the users with details
+
+```txt
+[Wed Feb 01 2023 01:20:29 GMT+0100 (UTC+02:00)] User user1 logged in
+[Wed Feb 01 2023 01:20:31 GMT+0100 (UTC+02:00)] User user1 logged out
+[Wed Feb 01 2023 01:20:51 GMT+0100 (UTC+02:00)] User admin logged in
+[Wed Feb 01 2023 01:21:05 GMT+0100 (UTC+02:00)] User admin logged out
+```
