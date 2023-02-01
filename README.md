@@ -44,7 +44,7 @@ CREATE TABLE notes (
   student_id number(10) NOT NULL,
   FOREIGN KEY (student_id) REFERENCES student(student_id)
   subject varchar(30) NOT NULL,
-  mark number(10) NOT NULL
+  grade number(10) NOT NULL
 );
 ```
 ## Users creation :
@@ -77,7 +77,7 @@ GRANT SELECT ON notes TO user1;
 for the fisrt test we are going to use our simple user "user1" 
 to do that we are goin to run a simple SQL query such as :
 ```sql
-INSERT INTO notes (note_id,student_id,subject,mark)
+INSERT INTO notes (note_id,student_id,subject,grade)
 VALUES (1, 1, "oracle",19);
 ```
 we obtain an error because we didnt give the user "user1" the privilege to insert any value in notes table
@@ -87,7 +87,7 @@ we obtain an error because we didnt give the user "user1" the privilege to inser
 now we are going to do the same process but with admin privileges
 
 ```sql
-INSERT INTO notes (note_id,student_id,subject,mark)
+INSERT INTO notes (note_id,student_id,subject,grade)
 VALUES (1, 1, "oracle",19);
 ```
 as you can see we were able to insert a value in the notes table
@@ -96,3 +96,14 @@ as you can see we were able to insert a value in the notes table
 
 This is a simple example, using "admin" as an admin and "user1" as a normal user, you can perform various privileges on other types of users.
 
+
+# WEB Platform test :
+
+![shema](https://user-images.githubusercontent.com/121964432/216121058-1975847b-de10-429d-a6bc-056f34f75439.png)
+
+Here are the general steps for connecting from the platform to the data base:
+- Configuring the connection parameters: This includes specifying the connection details, which includes the user name and password.
+Charge the Oracle driver for the client platform: The Oracle Connection Pilote is a library that enables one to connect to the Oracle Database, often known as Oracledb for Node. js
+- Establishing a connection The client platform can establish a secure connection with the Oracle data base by using the connection information and the Oracle pilot, according on the entered profile.
+- Execute queries: After establishing a connection, the client platform can run SQL queries to interact with the data stored in the Oracle database.
+- Terminate the connection: Terminating the connection will free up the platform's used resources when it is no longer necessary for it to connect to the database.
