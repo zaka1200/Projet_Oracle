@@ -142,3 +142,5 @@ Here is an example of a connection with admin:
 ![step3](https://user-images.githubusercontent.com/121964432/216138551-7d85cda1-807d-4518-9553-2cdcb72850fe.png)
 
 - after clicking "modify" button we can see the table is updated
+
+> we can access the file logs.txt to see our journal
